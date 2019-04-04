@@ -9,8 +9,6 @@ such as for example OleDB or Odbc allow you to work with a variety of relational
 databases and Excel spreadsheets to Microsoft SQL Server, MySQL databases or Oracle databases. Because PowerShell provides
 access to .NET classes, ADO.NET can also be addressed through PowerShell.
 
-## Information
-
 In order to establish a connection to a database and execute SQL queries, two pieces of information are required which can be
 communicated to the Cmdlet via parameters. These are the **data provider** and the **connection string** of the database. 
 Currently, the following default data providers are supported by the `System.Data` namespace:
