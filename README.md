@@ -1,2 +1,3 @@
 # PowerADO.NET
-Query relational databases using SQL from PowerShell
+
+Query relational databases from PowerShell using SQL
