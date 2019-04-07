@@ -1,5 +1,7 @@
 # PowerADO.NET
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fa05ad4e54b345c88807ff4454c845b0)](https://www.codacy.com/app/off-world/PowerADO.NET?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=off-world/PowerADO.NET&amp;utm_campaign=Badge_Grade)
+
 Query relational databases from PowerShell using SQL
 
 ## Description
