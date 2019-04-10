@@ -23,37 +23,48 @@
 
 <# 
     .SYNOPSIS 
-    Queries a database. 
+    Query a database. 
  
     .DESCRIPTION 
-    Executes SQL queries against a database using ADO.NET. 
+    Execute SQL queries using ADO.NET. 
  
     .PARAMETER Query 
-    SQL query to execute. 
+    The SQL query to execute which could be any string containing simple valid SQL. Can consist of
+	multiple SQL commands separated by semicolons which will be processed sequentially by the Cmdlet.
  
     .PARAMETER Provider 
-    ADO.NET Dataprovider to use. 
+    The ADO.NET dataprovider used for accessing the data source to query.
+	Can be any of the following:
+	Sql - Provides data access for Microsoft SQL Server
+	OleDb - For data sources exposed by using OLE DB
+	Odbc - For data sources exposed by using ODBC
+	Oracle - For Oracle data sources
+	Entity - Provides data access for Entity Data Model (EDM) applications
+	SqlCe - Provides data access for Microsoft SQL Server Compact 4.0
  
     .PARAMETER ConnectionString 
-    Connection string for the database to be queried. 
+    The database connection string.
+	
+	.OUTPUTS
+	On SELECT commands, matching rows will be returned from the database as PowerShell objects.
+	Other commands like INSERT or DELETE are executed without any return value. The amount
+	of rows in the database affected by those commands will be shown when the -Verbose switch
+	is specified, though.
+	
+	.COMPONENT
+	ADO.NET
  
     .EXAMPLE 
-    Select all columns from the Customers table. 
- 
-    PS C:\> 'SELECT * FROM Customers' | Invoke-SqlQuery -Provider OleDb -ConnectionString 'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\db1.accdb' 
+    'SELECT * FROM Customers' | Invoke-SqlQuery -Provider OleDb -ConnectionString 'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\db1.accdb' 
  
     .EXAMPLE 
-    First insert a row into the Customers table and select afterwards. 
- 
-    PS C:\> $query = "INSERT INTO Customers VALUES ('Doe','John');SELECT * FROM Customers WHERE Surname='John'" 
-    PS C:\> $query | Invoke-SqlQuery -Provider Sql -ConnectionString 'Server=db1.contoso.com;Database=CustomersDb;User Id=Admin;Password=pwd' 
+    $query = "INSERT INTO Customers VALUES ('Doe','John');SELECT * FROM Customers WHERE Surname='John'" 
+    $query | Invoke-SqlQuery -Provider Sql -ConnectionString 'Server=db1.contoso.com;Database=CustomersDb;User Id=Admin;Password=pwd' 
  
     .EXAMPLE 
-    Alternative syntax to the example before. 
- 
-    PS C:\> $query1 = "INSERT INTO Customers VALUES ('Doe','John')" 
-    PS C:\> $query2 = "SELECT * FROM Customers WHERE Surname='John'" 
-    PS C:\> $query1, query2 | query Sql 'Server=db1.contoso.com;Database=CustomersDb;User Id=Admin;Password=pwd' 
+    $query1 = "INSERT INTO Customers VALUES ('Doe','John')" 
+    $query2 = "SELECT * FROM Customers WHERE Surname='John'" 
+    $query1, query2 | query Sql 'Server=db1.contoso.com;Database=CustomersDb;User Id=Admin;Password=pwd' 
 #>
 function Invoke-SqlQuery
 {
