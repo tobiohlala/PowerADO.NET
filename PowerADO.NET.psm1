@@ -33,8 +33,7 @@
     multiple SQL commands separated by semicolons which will be processed sequentially by the Cmdlet.
  
     .PARAMETER Provider 
-    The ADO.NET dataprovider used for accessing the data source to query.
-    Can be any of the following:
+    The ADO.NET dataprovider used for accessing the data source to query. Can be any of the following:
     Sql - Provides data access for Microsoft SQL Server
     OleDb - For data sources exposed by using OLE DB
     Odbc - For data sources exposed by using ODBC
