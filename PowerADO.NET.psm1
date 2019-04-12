@@ -126,7 +126,7 @@ function Invoke-SqlQuery
 
     process
     {
-        $_ -split ';' | % {
+        $_ -split ';' | ForEach-Object {
             if (-not [String]::IsNullOrWhiteSpace($_))
             {
                 $command.CommandText = $_.Trim()
@@ -137,7 +137,9 @@ function Invoke-SqlQuery
                     while ($reader.Read())
                     {
                         $row = [ordered]@{}
-                        0..($reader.FieldCount - 1) | % {$row.Add($reader.GetName($_) , $reader[$_])}
+                        0..($reader.FieldCount-1) | ForEach-Object {
+                            $row.Add($reader.GetName($_) , $reader[$_])
+                        }
                         New-Object PSObject -Property $row
                     }
                     $reader.Close()
