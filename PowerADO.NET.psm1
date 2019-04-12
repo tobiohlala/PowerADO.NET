@@ -30,29 +30,28 @@
  
     .PARAMETER Query 
     The SQL query to execute which could be any string containing simple valid SQL. Can consist of
-	multiple SQL commands separated by semicolons which will be processed sequentially by the Cmdlet.
+    multiple SQL commands separated by semicolons which will be processed sequentially by the Cmdlet.
  
     .PARAMETER Provider 
-    The ADO.NET dataprovider used for accessing the data source to query.
-	Can be any of the following:
-	Sql - Provides data access for Microsoft SQL Server
-	OleDb - For data sources exposed by using OLE DB
-	Odbc - For data sources exposed by using ODBC
-	Oracle - For Oracle data sources
-	Entity - Provides data access for Entity Data Model (EDM) applications
-	SqlCe - Provides data access for Microsoft SQL Server Compact 4.0
+    The ADO.NET dataprovider used for accessing the data source to query. Can be any of the following:
+    Sql - Provides data access for Microsoft SQL Server
+    OleDb - For data sources exposed by using OLE DB
+    Odbc - For data sources exposed by using ODBC
+    Oracle - For Oracle data sources
+    Entity - Provides data access for Entity Data Model (EDM) applications
+    SqlCe - Provides data access for Microsoft SQL Server Compact 4.0
  
     .PARAMETER ConnectionString 
     The database connection string.
 	
-	.OUTPUTS
-	On SELECT commands, matching rows will be returned from the database as PowerShell objects.
-	Other commands like INSERT or DELETE are executed without any return value. The amount
-	of rows in the database affected by those commands will be shown when the -Verbose switch
-	is specified, though.
+    .OUTPUTS
+    On SELECT commands, matching rows will be returned from the database as PowerShell objects.
+    Other commands like INSERT or DELETE are executed without any return value. The amount
+    of rows in the database affected by those commands will be shown when the -Verbose switch
+    is specified, though.
 	
-	.COMPONENT
-	ADO.NET
+    .COMPONENT
+    ADO.NET
  
     .EXAMPLE 
     'SELECT * FROM Customers' | Invoke-SqlQuery -Provider OleDb -ConnectionString 'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\db1.accdb' 
