@@ -68,8 +68,7 @@
 function Invoke-SqlQuery
 {
     [CmdletBinding()]
-    param
-    (
+    param(
         [Parameter(Mandatory=$true, ValueFromPipeline=$true)]
         [String]
         $Query,
