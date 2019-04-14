@@ -30,7 +30,7 @@ any return value. However, you can use the `-Verbose` parameter to see how many 
 
 ## Installation
 
-Install from [PowerShell Gallery](https://www.powershellgallery.com/packages/PowerADO.NET/1.0.0.0)
+Install from [PowerShell Gallery](https://www.powershellgallery.com/packages/PowerADO.NET)
 
 ```Powershell
 Install-Module -Name PowerADO.NET
