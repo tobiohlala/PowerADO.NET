@@ -40,6 +40,8 @@ Install-Module -Name PowerADO.NET
 
 ```Powershell
 Import-Module PowerADO.NET
+
+'SELECT * FROM Customers' | Invoke-SqlQuery -Provider OleDb -ConnectionString 'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=.\customers.accdb'
 ```
 
 ## Examples
